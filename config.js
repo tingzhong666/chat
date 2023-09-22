@@ -16,7 +16,13 @@ const that = {
   },
   http: {
     port: 8080,
-  }
+  },
+  mongodb: {
+    db_name: 'chat',
+    server: () => {
+      return `mongodb://mongo/${that.mongodb.db_name}`
+    }
+  },
 }
 
 export default that
