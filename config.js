@@ -1,7 +1,14 @@
+import url from 'url'
+import path from 'path'
+
+// 非浏览器环境 获取项目根目录
+const __dirname = typeof window == 'undefined' ? path.dirname(url.fileURLToPath(import.meta.url)) : ''
+
 // dev | product
-const env = 'dev'
+const env = process.env.NODE_DEV | 'dev'
 
 const that = {
+  root: __dirname,
   ss: {
     port: () => {
       return that.http.port
